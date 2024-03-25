@@ -6,19 +6,18 @@ using namespace std;
 int main() {
     int a[3] = {0, 0, 0};
     int n;
-    while (cin >> n) {
-        a[0] = n;
-        cin >> n;
-        a[1] = n;
-        cin >> n;
-        a[2] = n;
-        sort(a, a+3);
-        if (a[3] >= a[2] + a[1]) {
-            cout << "NO";
-        }
-        else {
-            cout << "YES";
-        }
+    cin >> n;
+    a[0] = n;
+    cin >> n;
+    a[1] = n;
+    cin >> n;
+    a[2] = n;
+    sort(a, a+3);
+    if (a[2] >= a[1] + a[0] || a[0] == 0 || a[1] == 0 || a[2] == 0) {
+        cout << "NO";
+    }
+    else {
+        cout << "YES";
     }
 
     return 0;
