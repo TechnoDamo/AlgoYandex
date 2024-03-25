@@ -1,0 +1,72 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+
+int main() {
+    string nm, n;
+    cin >> nm;
+    if (nm[0] == '+') {
+        nm = nm.substr(2, nm.size()-2);
+        nm = "8" + nm;
+    }
+    else {
+        nm = "8" + nm;
+    }
+    vector<int> instances;
+    for (int i = 0; i < nm.size(); i++) {
+        if (nm[i] < 48 || nm[i] > 57) {
+            instances.push_back(i);
+        }
+    }
+    int corr = 0;
+    for (int i = 0; i < instances.size(); i++) {
+        nm.erase(nm.begin() + instances[i] - corr);
+        corr++;
+    }
+
+    if (nm.size() == 8) {
+        nm.erase(nm.begin());
+        nm = "8495" + nm;
+    }
+    else if (nm.size() == 12) {
+        nm.erase(nm.begin());
+    }
+    n = nm;
+    while (cin >> nm) {
+        if (nm[0] == '+') {
+            nm = nm.substr(2, nm.size()-2);
+            nm = "8" + nm;
+        }
+        else {
+            nm = "8" + nm;
+        }
+        vector<int> instances;
+        for (int i = 0; i < nm.size(); i++) {
+            if (nm[i] < 48 || nm[i] > 57) {
+                instances.push_back(i);
+            }
+        }
+        int corr = 0;
+        for (int i = 0; i < instances.size(); i++) {
+            nm.erase(nm.begin() + instances[i] - corr);
+            corr++;
+        }
+
+        if (nm.size() == 8) {
+            nm.erase(nm.begin());
+            nm = "8495" + nm;
+        }
+        else if (nm.size() == 12) {
+            nm.erase(nm.begin());
+        }
+        if (nm == n) {
+            cout << "YES" << endl;
+        }
+        else {
+            cout << "NO" << endl;
+        }
+    }
+
+    return 0;
+}
