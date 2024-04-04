@@ -1,0 +1,31 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+bool isAsc(const vector<int> &v) {
+    for (int i = 1; i < v.size(); i++) {
+        if (v[i] < v[i-1]) return false;
+    }
+    return true;
+}
+
+int main() {
+    vector<int> v;
+    int x;
+    while (cin >> x) {
+        v.push_back(x);
+    }
+    
+    if (v[0] == v[v.size()-1] || v.size() == 1) {
+        cout << "NO";
+        return 0;
+    }
+
+    if (isAsc(v)) {
+        cout << "YES";
+    } else {
+        cout << "NO";
+    }
+
+    return 0;
+}
