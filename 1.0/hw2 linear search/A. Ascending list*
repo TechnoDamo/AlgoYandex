@@ -15,8 +15,13 @@ int main() {
     while (cin >> x) {
         v.push_back(x);
     }
+
+    if (v.size() == 1) {
+        cout << "YES";
+        return 0;
+    }
     
-    if (v[0] == v[v.size()-1] || v.size() == 1) {
+    if (v[0] == v[v.size()-1]) {
         cout << "NO";
         return 0;
     }
